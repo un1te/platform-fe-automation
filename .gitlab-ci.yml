@@ -1,0 +1,37 @@
+---
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"                 # Run on web UI Run pipeline
+    - if: $CI_PIPELINE_SOURCE == "schedule"            # Run on schedule
+    - if: $CI_PIPELINE_SOURCE == "pipeline"            # Run in multi-project pipelines
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" # Run on merge requests
+    - if: $CI_COMMIT_REF_PROTECTED == "true"           # Run on protected branches ("main")
+
+stages:
+  - test
+
+default:
+  image: mcr.microsoft.com/playwright:v1.44.1-jammy
+  tags:
+    - eng-platform-runner
+
+test:
+  before_script:
+    - apt-get update -qq && apt-get install -qqy default-jre python3-pip
+    - pip install trcli
+    - npm install axios
+    - npm install @types/axios
+    - npm ci
+  script:
+    - npm run test
+  after_script:
+    - npm run tr-report
+    - npx allure generate --clean allure-results
+    - npx cypress-msteams-allure-2 --report-url "https://your-gitlab-instance.io/-/your-group/your-project-fe-automation/-/jobs/$CI_JOB_ID/artifacts/allure-report/index.html"
+  allow_failure: true
+  artifacts:
+    when: always
+    paths:
+      - allure-report
+    
+      - test-results/*/trace.zip

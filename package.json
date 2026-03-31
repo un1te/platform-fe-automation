@@ -1,0 +1,27 @@
+{
+  "name": "e2e_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:debug": "DEBUG=pw:api npx playwright test",
+    "report-publish": "allure generate",
+    "tr-report": "node trcli.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^20.14.1",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^3.0.0-beta.2",
+    "cypress-msteams-allure-2": "^1.1.1",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.7.2"
+  }
+}
