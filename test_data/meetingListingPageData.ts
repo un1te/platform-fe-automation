@@ -1,7 +1,7 @@
 const meetingsUrl = '/meetings';
 const newMeetingUrl = '/meetings/new';
-const roleIdCISO = 'bbd4222e2d9794226eac253ed0d9e22f'
-const roleIdCIO = 'd5fef42de445a1adf564d8ad4bd39d2a'
+const roleIdCISO = '0d9e22f'
+const roleIdCIO = 'bd39d2a'
 
 function getRandomTestName(): string {
     const name = "test";
