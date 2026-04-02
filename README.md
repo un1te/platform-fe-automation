@@ -1,5 +1,5 @@
 # E2E Automation Tests
-This project contains automated tests for a web application using Node.js and Playwright.
+This project contains automated tests for a web application using Node.js, TypeScript, Playwright, Allure reports, and TestRail integration.
 
 ## Prerequisites
 - Node.js latest LTS version installed
