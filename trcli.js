@@ -1,5 +1,7 @@
-const { exec } = require('child_process');
-require('dotenv').config();
+import { exec } from 'child_process';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const host = process.env.TESTRAIL_URL;
 const project = process.env.TESTRAIL_PROJECT_NAME;

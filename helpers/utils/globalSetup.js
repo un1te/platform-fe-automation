@@ -1,7 +1,7 @@
 //globalSetup.js
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
-async function globalSetup(config) {
+async function globalSetup() {
     dotenv.config({
       path: '.env',
       override: true
