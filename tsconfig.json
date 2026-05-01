@@ -5,13 +5,23 @@
         "moduleResolution": "NodeNext",
         "jsx": "react-jsx",
         "baseUrl": "./",
+        "ignoreDeprecations": "6.0",
         "esModuleInterop": true,
+        "types": [
+            "node"
+        ],
         "lib": [
-            "es2021"
+            "ESNext",
+            "DOM",
+            "DOM.Iterable"
         ],
         "typeRoots": [
             "./node_modules/@types"
         ],
-        "resolveJsonModule": true
-    }
+        "resolveJsonModule": true,
+        "skipLibCheck": true
+    },
+    "exclude": [
+        "eslint.config.mts"
+    ]
 }
